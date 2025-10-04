@@ -2,6 +2,7 @@ import { Phone, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import logoBlack from "@assets/generated_images/logo-black.svg";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,7 +41,11 @@ export default function Header() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-primary">501 Towing & Roadside</h1>
+              <img 
+                src={logoBlack} 
+                alt="501 Towing & Roadside" 
+                className="h-12 w-auto"
+              />
             </div>
 
             {/* Desktop Navigation */}

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Clock, MapPin } from "lucide-react";
-import heroImage from "@assets/generated_images/Professional_tow_truck_hero_13cb3500.png";
+import heroImage from "@assets/generated_images/tow_truck_501_towing_2.jpeg";
 
 export default function Hero() {
   const handleGetHelp = () => {
@@ -25,7 +25,7 @@ export default function Hero() {
     >
       <div className="container mx-auto px-4 text-center text-white">
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          Reliable Towing
+          501 Towing & Roadside
           <span className="block text-accent">24/7 Emergency Service</span>
         </h1>
         
