@@ -47,7 +47,7 @@ export default function Contact() {
   const handleEmergencyCall = () => {
     console.log("Emergency call initiated");
     // todo: remove mock functionality
-    window.location.href = "tel:+15551234567";
+    window.location.href = "tel:+15014512151";
   };
 
   return (
@@ -161,7 +161,7 @@ export default function Contact() {
                   data-testid="button-emergency-call-contact"
                 >
                   <Phone className="h-5 w-5 mr-2" />
-                  Call Now: (555) 123-TOWING
+                  Call Now: (501) 451-2151
                 </Button>
                 <p className="text-sm text-center mt-3 text-muted-foreground">
                   Average response time: Under 30 minutes
@@ -179,7 +179,7 @@ export default function Contact() {
                   <Phone className="h-5 w-5 text-primary mr-3" />
                   <div>
                     <p className="font-semibold">Emergency Line</p>
-                    <p className="text-muted-foreground">(555) 123-TOWING</p>
+                    <p className="text-muted-foreground">(501) 451-2151</p>
                   </div>
                 </div>
                 
@@ -194,8 +194,8 @@ export default function Contact() {
                 <div className="flex items-center">
                   <MapPin className="h-5 w-5 text-primary mr-3" />
                   <div>
-                    <p className="font-semibold">Service Area</p>
-                    <p className="text-muted-foreground">Metro area & surrounding regions</p>
+                    <p className="font-semibold">Address</p>
+                    <p className="text-muted-foreground">600 S. East Street, Benton, AR 72015</p>
                   </div>
                 </div>
                 

@@ -14,9 +14,9 @@ export default function Header() {
   ];
 
   const handleCall = () => {
-    console.log("Calling emergency number: (555) 123-TOWING");
+    console.log("Calling emergency number: (501) 451-2151");
     // todo: remove mock functionality
-    window.location.href = "tel:+15551234567";
+    window.location.href = "tel:+15014512151";
   };
 
   const handleNavClick = (href: string) => {
@@ -30,7 +30,7 @@ export default function Header() {
       {/* Emergency Banner */}
       <div className="bg-accent text-accent-foreground py-2 px-4 text-center">
         <p className="text-sm font-semibold">
-          🚨 24/7 Emergency Towing Available - Call Now: (555) 123-TOWING
+          🚨 24/7 Emergency Towing Available - Call Now: (501) 451-2151
         </p>
       </div>
 
@@ -40,7 +40,7 @@ export default function Header() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-primary">Reliable Towing</h1>
+              <h1 className="text-2xl font-bold text-primary">501 Towing & Roadside</h1>
             </div>
 
             {/* Desktop Navigation */}

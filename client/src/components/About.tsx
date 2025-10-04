@@ -16,7 +16,7 @@ export default function About() {
     <section id="about" className="py-16" data-testid="section-about">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">About Reliable Towing</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">About 501 Towing & Roadside</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Your trusted local towing company with over 15 years of experience 
             serving the community with professional, reliable service.
@@ -68,7 +68,7 @@ export default function About() {
           <div className="relative">
             <img
               src={fleetImage}
-              alt="Reliable Towing fleet"
+              alt="501 Towing & Roadside fleet"
               className="rounded-lg shadow-lg w-full"
               data-testid="img-company-fleet"
             />

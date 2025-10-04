@@ -6,7 +6,7 @@ export default function Footer() {
   const handleCall = () => {
     console.log("Footer emergency call");
     // todo: remove mock functionality
-    window.location.href = "tel:+15551234567";
+    window.location.href = "tel:+15014512151";
   };
 
   const handleNavClick = (section: string) => {
@@ -20,7 +20,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Reliable Towing</h3>
+            <h3 className="text-xl font-bold mb-4">501 Towing & Roadside</h3>
             <p className="text-sm text-primary-foreground/80 mb-4">
               Your trusted local towing company providing professional roadside 
               assistance and emergency towing services 24/7.
@@ -32,7 +32,7 @@ export default function Footer() {
                 className="text-sm hover:text-accent transition-colors"
                 data-testid="button-footer-call"
               >
-                (555) 123-TOWING
+                (501) 451-2151
               </button>
             </div>
             <div className="flex items-center">
@@ -97,26 +97,27 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Service Area */}
+          {/* Location & Service Area */}
           <div>
-            <h4 className="font-semibold mb-4">Service Area</h4>
+            <h4 className="font-semibold mb-4">Location</h4>
             <div className="flex items-start mb-3">
               <MapPin className="h-4 w-4 mr-2 mt-0.5" />
               <div className="text-sm text-primary-foreground/80">
-                <p>Metro Area Coverage</p>
+                <p>600 S. East Street</p>
+                <p>Benton, AR 72015</p>
                 <p>24/7 Emergency Response</p>
               </div>
             </div>
             <p className="text-sm text-primary-foreground/80">
-              Serving the entire metropolitan area and surrounding regions with 
-              fast, reliable towing services.
+              Serving Benton, Little Rock, and surrounding Central Arkansas 
+              regions with fast, reliable towing services.
             </p>
           </div>
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
           <p className="text-sm text-primary-foreground/80">
-            © {currentYear} Reliable Towing. All rights reserved. | Licensed & Insured
+            © {currentYear} 501 Towing & Roadside. All rights reserved. | Licensed & Insured
           </p>
         </div>
       </div>

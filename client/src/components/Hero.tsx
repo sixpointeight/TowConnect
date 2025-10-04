@@ -11,7 +11,7 @@ export default function Hero() {
   const handleCall = () => {
     console.log("Emergency call initiated");
     // todo: remove mock functionality
-    window.location.href = "tel:+15551234567";
+    window.location.href = "tel:+15014512151";
   };
 
   return (
@@ -31,7 +31,7 @@ export default function Hero() {
         
         <p className="text-xl mb-8 max-w-2xl mx-auto">
           Professional towing and roadside assistance when you need it most. 
-          Fast response times, fair pricing, and expert service across the metro area.
+          Fast response times, fair pricing, and expert service across Central Arkansas.
         </p>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
@@ -41,7 +41,7 @@ export default function Hero() {
           </div>
           <div className="flex items-center text-white">
             <MapPin className="h-5 w-5 mr-2 text-accent" />
-            <span>Metro-wide Coverage</span>
+            <span>Central Arkansas Coverage</span>
           </div>
         </div>
 
@@ -53,7 +53,7 @@ export default function Hero() {
             data-testid="button-hero-call"
           >
             <Phone className="h-5 w-5 mr-2" />
-            (555) 123-TOWING
+            (501) 451-2151
           </Button>
           
           <Button
