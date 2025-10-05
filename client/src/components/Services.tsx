@@ -76,7 +76,7 @@ export default function Services() {
         {/* Why Choose Us */}
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <h3 className="text-2xl font-bold mb-6">Why Choose Reliable Towing?</h3>
+            <h3 className="text-2xl font-bold mb-6">Why Choose 501 Towing & Roadside?</h3>
             <div className="space-y-4">
               <div className="flex items-start">
                 <Clock className="h-5 w-5 text-accent mr-3 mt-1" />

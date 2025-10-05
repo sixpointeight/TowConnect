@@ -44,7 +44,7 @@ export default function About() {
             <h3 className="text-2xl font-bold mb-6">Our Story</h3>
             <div className="space-y-4">
               <p className="text-muted-foreground">
-                Founded in 2008, Reliable Towing started as a small family business with 
+                Founded in 2008, 501 Towing & Roadside started as a small family business with 
                 a simple mission: provide fast, professional towing services when people 
                 need help the most.
               </p>
