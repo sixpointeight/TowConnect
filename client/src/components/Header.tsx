@@ -2,10 +2,13 @@ import { Phone, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import { useTheme } from "@/hooks/useTheme";
 import logoBlack from "@assets/generated_images/logo-black.svg";
+import logoWhite from "@assets/generated_images/logo-white.svg";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const theme = useTheme();
 
   const navItems = [
     { label: "Home", href: "#home" },
@@ -42,7 +45,7 @@ export default function Header() {
             {/* Logo */}
             <div className="flex items-center">
               <img 
-                src={logoBlack} 
+                src={theme === 'dark' ? logoWhite : logoBlack} 
                 alt="501 Towing & Roadside" 
                 className="h-12 w-auto"
               />
