@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { trackFormSubmission, trackPhoneCall } from "@/lib/analytics";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -26,8 +27,9 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Contact form submitted:", formData);
-    // todo: remove mock functionality
+    
+    // Track form submission
+    trackFormSubmission('contact_request');
     
     toast({
       title: "Request Received",
@@ -45,8 +47,7 @@ export default function Contact() {
   };
 
   const handleEmergencyCall = () => {
-    console.log("Emergency call initiated");
-    // todo: remove mock functionality
+    trackPhoneCall('contact_emergency_button');
     window.location.href = "tel:+15014512151";
   };
 

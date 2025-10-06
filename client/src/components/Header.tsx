@@ -1,6 +1,8 @@
 import { Phone, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
+import { trackPhoneCall, trackNavigation, trackEmergencyBanner } from "@/lib/analytics";
 import ThemeToggle from "./ThemeToggle";
 import { useTheme } from "@/hooks/useTheme";
 import logoBlack from "@assets/generated_images/logo-black.svg";
@@ -8,24 +10,41 @@ import logoWhite from "@assets/generated_images/logo-white.svg";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [location] = useLocation();
   const theme = useTheme();
 
+  // Track emergency banner view on component mount
+  useEffect(() => {
+    trackEmergencyBanner('view');
+  }, []);
+
   const navItems = [
-    { label: "Home", href: "#home" },
-    { label: "Services", href: "#services" },
-    { label: "About", href: "#about" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/", isRoute: true },
+    { label: "Rate Calculator", href: "/rate-calculator", isRoute: true },
+    { label: "Services", href: "#services", isRoute: false },
+    { label: "About", href: "#about", isRoute: false },
+    { label: "Contact", href: "#contact", isRoute: false },
   ];
 
   const handleCall = () => {
-    console.log("Calling emergency number: (501) 451-2151");
-    // todo: remove mock functionality
+    trackPhoneCall('header_button');
     window.location.href = "tel:+15014512151";
   };
 
-  const handleNavClick = (href: string) => {
-    console.log(`Navigating to ${href}`);
-    // todo: remove mock functionality
+  const handleNavClick = (href: string, isRoute: boolean) => {
+    // Track navigation
+    const destination = isRoute ? href.replace('/', '') || 'home' : href.replace('#', '');
+    trackNavigation(destination, 'header');
+    
+    if (isRoute) {
+      // Let Link component handle routing
+    } else {
+      // Handle anchor links for same-page navigation
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
     setIsMenuOpen(false);
   };
 
@@ -44,24 +63,39 @@ export default function Header() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
-              <img 
-                src={theme === 'dark' ? logoWhite : logoBlack} 
-                alt="501 Towing & Roadside" 
-                className="h-12 w-auto"
-              />
+              <Link href="/">
+                <img 
+                  src={theme === 'dark' ? logoWhite : logoBlack} 
+                  alt="501 Towing & Roadside" 
+                  className="h-12 w-auto cursor-pointer"
+                />
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => handleNavClick(item.href)}
-                  className="text-foreground hover:text-primary transition-colors"
-                  data-testid={`link-${item.label.toLowerCase()}`}
-                >
-                  {item.label}
-                </button>
+                item.isRoute ? (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className={`text-foreground hover:text-primary transition-colors ${
+                      location === item.href ? 'text-primary font-medium' : ''
+                    }`}
+                    data-testid={`link-${item.label.toLowerCase().replace(' ', '-')}`}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <button
+                    key={item.label}
+                    onClick={() => handleNavClick(item.href, item.isRoute)}
+                    className="text-foreground hover:text-primary transition-colors"
+                    data-testid={`link-${item.label.toLowerCase().replace(' ', '-')}`}
+                  >
+                    {item.label}
+                  </button>
+                )
               ))}
             </nav>
 
@@ -95,14 +129,27 @@ export default function Header() {
             <nav className="md:hidden mt-4 pb-4 border-t border-border pt-4">
               <div className="flex flex-col space-y-4">
                 {navItems.map((item) => (
-                  <button
-                    key={item.label}
-                    onClick={() => handleNavClick(item.href)}
-                    className="text-left text-foreground hover:text-primary transition-colors"
-                    data-testid={`link-mobile-${item.label.toLowerCase()}`}
-                  >
-                    {item.label}
-                  </button>
+                  item.isRoute ? (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className={`text-left text-foreground hover:text-primary transition-colors ${
+                        location === item.href ? 'text-primary font-medium' : ''
+                      }`}
+                      data-testid={`link-mobile-${item.label.toLowerCase().replace(' ', '-')}`}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <button
+                      key={item.label}
+                      onClick={() => handleNavClick(item.href, item.isRoute)}
+                      className="text-left text-foreground hover:text-primary transition-colors"
+                      data-testid={`link-mobile-${item.label.toLowerCase().replace(' ', '-')}`}
+                    >
+                      {item.label}
+                    </button>
+                  )
                 ))}
               </div>
             </nav>

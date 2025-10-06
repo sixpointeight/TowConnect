@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Truck, Wrench, Car, Clock, MapPin, Shield } from "lucide-react";
+import { trackServiceInterest } from "@/lib/analytics";
 import emergencyImage from "@assets/generated_images/Emergency_roadside_assistance_service_0f19d632.png";
 
 const services = [
@@ -26,8 +27,8 @@ const services = [
 
 export default function Services() {
   const handleLearnMore = (service: string) => {
-    console.log(`Learn more about ${service} service`);
-    // todo: remove mock functionality
+    trackServiceInterest(service.toLowerCase().replace(' ', '_'));
+    // Future: could navigate to detailed service page or open modal
   };
 
   return (

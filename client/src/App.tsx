@@ -1,28 +1,51 @@
+import { useEffect } from "react";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Router, Route, Switch, useLocation } from "wouter";
+import { initGA, trackPageView } from "@/lib/analytics";
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import About from "@/components/About";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import HomePage from "@/pages/HomePage";
+import RateCalculatorPage from "@/pages/RateCalculatorPage";
+
+// Component to track page views
+function PageTracker() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    // Track page view on route change
+    trackPageView(location);
+  }, [location]);
+
+  return null;
+}
 
 function App() {
+  // Initialize Google Analytics on app load
+  useEffect(() => {
+    initGA();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <div className="min-h-screen bg-background text-foreground">
-          <Header />
-          <main>
-            <Hero />
-            <Services />
-            <About />
-            <Contact />
-          </main>
-          <Footer />
-        </div>
+        <Router>
+          <PageTracker />
+          <div className="min-h-screen bg-background text-foreground">
+            <Header />
+            <main>
+              <Switch>
+                <Route path="/" component={HomePage} />
+                <Route path="/rate-calculator" component={RateCalculatorPage} />
+                {/* Default route - redirect to home */}
+                <Route component={HomePage} />
+              </Switch>
+            </main>
+            <Footer />
+          </div>
+        </Router>
         <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
