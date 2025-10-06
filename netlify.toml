@@ -1,0 +1,27 @@
+[build]
+  publish = "dist/public"
+  command = "npm run build"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Redirect API calls to serverless functions
+[[redirects]]
+  from = "/api/maps/places/autocomplete"
+  to = "/.netlify/functions/maps-places-autocomplete"
+  status = 200
+
+[[redirects]]
+  from = "/api/maps/calculate-route"
+  to = "/.netlify/functions/maps-calculate-route"
+  status = 200
+
+# SPA fallback - all other routes go to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
