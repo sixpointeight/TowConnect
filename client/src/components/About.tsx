@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Users, Award, Clock, Truck } from "lucide-react";
-import fleetImage from "@assets/generated_images/Towing_company_fleet_e370fa9d.png";
+import teslaImage from "@assets/generated_images/501_towing_loading_tesla.png";
 import technicianImage from "@assets/generated_images/Professional_towing_technician_c412a32f.png";
 
 const stats = [
@@ -67,8 +67,8 @@ export default function About() {
           </div>
           <div className="relative">
             <img
-              src={fleetImage}
-              alt="501 Towing & Roadside fleet"
+              src={teslaImage}
+              alt="501 Towing loading a Tesla"
               className="rounded-lg shadow-lg w-full"
               data-testid="img-company-fleet"
             />
