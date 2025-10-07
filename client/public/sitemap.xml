@@ -6,7 +6,7 @@
 
   <!-- Homepage - Highest priority, most frequently updated -->
   <url>
-    <loc>https://your-netlify-site.netlify.app/</loc>
+    <loc>https://fiveoonetowing.com/</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- Rate Calculator Page - High priority for business conversion -->
   <url>
-    <loc>https://your-netlify-site.netlify.app/rate-calculator</loc>
+    <loc>https://fiveoonetowing.com/rate-calculator</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -33,7 +33,7 @@
   
   Example:
   <url>
-    <loc>https://your-netlify-site.netlify.app/services</loc>
+    <loc>https://fiveoonetowing.com/services</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
