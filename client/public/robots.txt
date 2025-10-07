@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Allow access to all important pages
+Allow: /rate-calculator
+
+# Block access to admin, private, or development files
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_redirects
+Disallow: /assets/
+Disallow: /.well-known/
+Disallow: /api/
+
+# Allow search engines to crawl CSS and JS files for better rendering
+Allow: /assets/*.css
+Allow: /assets/*.js
+
+# Sitemap location
+Sitemap: https://your-netlify-site.netlify.app/sitemap.xml
+
+# Crawl delay (optional - helps prevent overwhelming the server)
+# Crawl-delay: 1

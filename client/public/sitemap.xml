@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage - Highest priority, most frequently updated -->
+  <url>
+    <loc>https://your-netlify-site.netlify.app/</loc>
+    <lastmod>2025-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Rate Calculator Page - High priority for business conversion -->
+  <url>
+    <loc>https://your-netlify-site.netlify.app/rate-calculator</loc>
+    <lastmod>2025-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 
+  Add additional pages as your site grows:
+  
+  Future pages you might add:
+  - /services (detailed services page)
+  - /about (dedicated about page)  
+  - /contact (dedicated contact page)
+  - /emergency (emergency services page)
+  - /coverage-area (service area page)
+  - /blog or /resources (content marketing)
+  
+  Example:
+  <url>
+    <loc>https://your-netlify-site.netlify.app/services</loc>
+    <lastmod>2025-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  -->
+
+</urlset>
