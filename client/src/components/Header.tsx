@@ -1,10 +1,18 @@
-import { Phone, Menu, X } from "lucide-react";
+import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { trackPhoneCall, trackNavigation, trackEmergencyBanner } from "@/lib/analytics";
 import ThemeToggle from "./ThemeToggle";
 import { useTheme } from "@/hooks/useTheme";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import logoBlack from "@assets/generated_images/logo-black.svg";
 import logoWhite from "@assets/generated_images/logo-white.svg";
 
@@ -21,9 +29,13 @@ export default function Header() {
   const navItems = [
     { label: "Home", href: "/", isRoute: true },
     { label: "Rate Calculator", href: "/rate-calculator", isRoute: true },
-    { label: "Services", href: "#services", isRoute: false },
     { label: "About", href: "#about", isRoute: false },
     { label: "Contact", href: "#contact", isRoute: false },
+  ];
+
+  const serviceItems = [
+    { label: "View All Services", href: "#services", isRoute: false },
+    { label: "Roadside Assistance", href: "/roadside-assistance", isRoute: true },
   ];
 
   const handleCall = () => {
@@ -97,6 +109,47 @@ export default function Header() {
                   </button>
                 )
               ))}
+              
+              {/* Services Dropdown */}
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-foreground hover:text-primary transition-colors bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
+                      Services
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="grid gap-3 p-4 w-48">
+                        {serviceItems.map((item) => (
+                          item.isRoute ? (
+                            <NavigationMenuLink key={item.label} asChild>
+                              <Link
+                                href={item.href}
+                                className={`block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors text-popover-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground ${
+                                  location === item.href ? 'bg-accent text-accent-foreground' : ''
+                                }`}
+                                data-testid={`services-link-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                                onClick={() => handleNavClick(item.href, item.isRoute)}
+                              >
+                                <div className="text-sm font-medium leading-none">{item.label}</div>
+                              </Link>
+                            </NavigationMenuLink>
+                          ) : (
+                            <NavigationMenuLink key={item.label} asChild>
+                              <button
+                                onClick={() => handleNavClick(item.href, item.isRoute)}
+                                className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors text-popover-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground text-left w-full"
+                                data-testid={`services-link-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                              >
+                                <div className="text-sm font-medium leading-none">{item.label}</div>
+                              </button>
+                            </NavigationMenuLink>
+                          )
+                        ))}
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
             </nav>
 
             {/* Right side buttons */}
@@ -151,6 +204,36 @@ export default function Header() {
                     </button>
                   )
                 ))}
+                
+                {/* Services Section */}
+                <div className="border-t border-border pt-4">
+                  <div className="text-sm font-medium text-muted-foreground mb-2">Services</div>
+                  <div className="flex flex-col space-y-2 pl-4">
+                    {serviceItems.map((item) => (
+                      item.isRoute ? (
+                        <Link
+                          key={item.label}
+                          href={item.href}
+                          className={`text-left text-foreground hover:text-primary transition-colors ${
+                            location === item.href ? 'text-primary font-medium' : ''
+                          }`}
+                          data-testid={`link-mobile-services-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                        >
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <button
+                          key={item.label}
+                          onClick={() => handleNavClick(item.href, item.isRoute)}
+                          className="text-left text-foreground hover:text-primary transition-colors"
+                          data-testid={`link-mobile-services-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                        >
+                          {item.label}
+                        </button>
+                      )
+                    ))}
+                  </div>
+                </div>
               </div>
             </nav>
           )}

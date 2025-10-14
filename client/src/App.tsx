@@ -9,6 +9,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HomePage from "@/pages/HomePage";
 import RateCalculatorPage from "@/pages/RateCalculatorPage";
+import RoadsideAssistancePage from "@/pages/RoadsideAssistancePage";
 
 // Component to track page views
 function PageTracker() {
@@ -39,6 +40,7 @@ function App() {
               <Switch>
                 <Route path="/" component={HomePage} />
                 <Route path="/rate-calculator" component={RateCalculatorPage} />
+                <Route path="/roadside-assistance" component={RoadsideAssistancePage} />
                 {/* Default route - redirect to home */}
                 <Route component={HomePage} />
               </Switch>
