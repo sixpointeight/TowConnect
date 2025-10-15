@@ -1,8 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Clock, MapPin } from "lucide-react";
-import heroImage from "@assets/generated_images/tow_truck_501_towing_2.jpeg";
+import { useState, useEffect } from "react";
+import heroImage1 from "@assets/generated_images/tow_truck_501_towing_2.jpeg";
+import heroImage2 from "@assets/generated_images/408-light-trail-highway.png";
 
 export default function Hero() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [heroImage1, heroImage2];
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 5000); // Change image every 5 seconds
+    
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   const handleGetHelp = () => {
     console.log("Get Help Now clicked - scrolling to contact");
     // todo: remove mock functionality
@@ -17,13 +30,23 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[600px] flex items-center justify-center bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroImage})`,
-      }}
+      className="relative min-h-[600px] flex items-center justify-center overflow-hidden"
       data-testid="section-hero"
     >
-      <div className="container mx-auto px-4 text-center text-white">
+      {/* Background carousel images */}
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${
+            index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${image})`,
+          }}
+        />
+      ))}
+      {/* Content overlay */}
+      <div className="container mx-auto px-4 text-center text-white relative z-10">
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
           501 Towing & Roadside
           <span className="block text-accent">24/7 Emergency Service</span>

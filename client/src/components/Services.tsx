@@ -38,7 +38,7 @@ export default function Services() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Professional towing and roadside assistance services designed to help you 
-            when you need it most. Available 24/7 throughout the metro area.
+            when you need it most. Available 24/7 throughout central Arkansas.
           </p>
         </div>
 
@@ -100,9 +100,9 @@ export default function Services() {
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 text-accent mr-3 mt-1" />
                 <div>
-                  <h4 className="font-semibold mb-1">Metro-wide Coverage</h4>
+                  <h4 className="font-semibold mb-1">State-wide Coverage</h4>
                   <p className="text-muted-foreground text-sm">
-                    Serving the entire metropolitan area and surrounding regions
+                    Serving central Arkansas and surrounding areas
                   </p>
                 </div>
               </div>

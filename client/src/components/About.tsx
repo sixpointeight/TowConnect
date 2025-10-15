@@ -7,7 +7,6 @@ import technicianImage from "@assets/generated_images/Professional_towing_techni
 const stats = [
   { icon: Clock, number: "15+", label: "Years Experience" },
   { icon: Users, number: "5,000+", label: "Customers Served" },
-  { icon: Truck, number: "12", label: "Towing Vehicles" },
   { icon: Award, number: "24/7", label: "Emergency Service" },
 ];
 
@@ -44,12 +43,12 @@ export default function About() {
             <h3 className="text-2xl font-bold mb-6">Our Story</h3>
             <div className="space-y-4">
               <p className="text-muted-foreground">
-                Founded in 2008, 501 Towing & Roadside started as a small family business with 
+                501 Towing & Roadside started as a small family business with 
                 a simple mission: provide fast, professional towing services when people 
                 need help the most.
               </p>
               <p className="text-muted-foreground">
-                Over the years, we've grown into the metro area's most trusted towing company, 
+                Over the years, we've grown into the most trusted towing company in Central Arkansas, 
                 but we've never lost sight of our core values: reliability, professionalism, 
                 and customer care.
               </p>
@@ -61,8 +60,6 @@ export default function About() {
             <div className="flex flex-wrap gap-2 mt-6">
               <Badge variant="secondary">Licensed</Badge>
               <Badge variant="secondary">Insured</Badge>
-              <Badge variant="secondary">Bonded</Badge>
-              <Badge variant="secondary">AAA Approved</Badge>
             </div>
           </div>
           <div className="relative">
