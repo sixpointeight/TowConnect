@@ -3,10 +3,11 @@ import { Phone, Clock, MapPin } from "lucide-react";
 import { useState, useEffect } from "react";
 import heroImage1 from "@assets/generated_images/tow_truck_501_towing_2.jpeg";
 import heroImage2 from "@assets/generated_images/408-light-trail-highway.png";
+import heroImage3 from "@assets/generated_images/501-towing-black-wrecker.png";
 
 export default function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = [heroImage1, heroImage2];
+  const images = [heroImage1, heroImage2, heroImage3];
   
   useEffect(() => {
     const interval = setInterval(() => {
