@@ -10,6 +10,8 @@ import Footer from "@/components/Footer";
 import HomePage from "@/pages/HomePage";
 import RateCalculatorPage from "@/pages/RateCalculatorPage";
 import RoadsideAssistancePage from "@/pages/RoadsideAssistancePage";
+import EmergencyTowingPage from "@/pages/EmergencyTowingPage";
+import AboutPage from "@/pages/AboutPage";
 
 // Component to track page views
 function PageTracker() {
@@ -41,6 +43,8 @@ function App() {
                 <Route path="/" component={HomePage} />
                 <Route path="/rate-calculator" component={RateCalculatorPage} />
                 <Route path="/roadside-assistance" component={RoadsideAssistancePage} />
+                <Route path="/emergency-towing" component={EmergencyTowingPage} />
+                <Route path="/about" component={AboutPage} />
                 {/* Default route - redirect to home */}
                 <Route component={HomePage} />
               </Switch>

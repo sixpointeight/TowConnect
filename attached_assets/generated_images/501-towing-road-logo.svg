@@ -1,0 +1,71 @@
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background road line art -->
+  <g stroke="#e5e7eb" stroke-width="2" fill="none" opacity="0.8">
+    <!-- Main road perspective -->
+    <path d="M50 180 Q100 120 150 100 Q200 80 250 70 Q300 60 350 50"/>
+    <!-- Road edges -->
+    <path d="M40 185 Q90 125 140 105 Q190 85 240 75 Q290 65 340 55"/>
+    <path d="M60 175 Q110 115 160 95 Q210 75 260 65 Q310 55 360 45"/>
+    <!-- Dotted center line -->
+    <path d="M50 180 Q100 120 150 100 Q200 80 250 70 Q300 60 350 50" stroke-dasharray="8,4" stroke="#d1d5db"/>
+  </g>
+  
+  <!-- Towing chain with j-hook -->
+  <g transform="translate(50, 120)">
+    <!-- Chain links -->
+    <g stroke="#6b7280" stroke-width="3" fill="none">
+      <ellipse cx="0" cy="0" rx="6" ry="10" transform="rotate(15)"/>
+      <ellipse cx="12" cy="-8" rx="6" ry="10" transform="rotate(-15)"/>
+      <ellipse cx="24" cy="-16" rx="6" ry="10" transform="rotate(15)"/>
+      <ellipse cx="36" cy="-24" rx="6" ry="10" transform="rotate(-15)"/>
+      <ellipse cx="48" cy="-32" rx="6" ry="10" transform="rotate(15)"/>
+      <ellipse cx="60" cy="-40" rx="6" ry="10" transform="rotate(-15)"/>
+      <ellipse cx="72" cy="-48" rx="6" ry="10" transform="rotate(15)"/>
+    </g>
+    
+    <!-- J-hook -->
+    <g stroke="#ea580c" stroke-width="4" fill="none">
+      <path d="M85 -52 Q90 -58 85 -65 Q75 -75 65 -70 Q55 -65 60 -55 Q65 -45 75 -50"/>
+      <!-- Hook point -->
+      <circle cx="85" cy="-52" r="2" fill="#ea580c"/>
+      <!-- Hook safety latch -->
+      <path d="M75 -50 L82 -55" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- Main "501" numbers - bold and prominent -->
+  <text x="200" y="110" font-family="Inter, Arial Black, sans-serif" font-size="72" font-weight="900" fill="#1e40af" text-anchor="middle" letter-spacing="-2px">501</text>
+  
+  <!-- Text shadow for depth -->
+  <text x="202" y="112" font-family="Inter, Arial Black, sans-serif" font-size="72" font-weight="900" fill="#000000" text-anchor="middle" letter-spacing="-2px" opacity="0.1">501</text>
+  
+  <!-- Company name positioned near 501 -->
+  <text x="200" y="140" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#374151" text-anchor="middle" letter-spacing="1px">TOWING</text>
+  <text x="200" y="165" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600" fill="#ea580c" text-anchor="middle" letter-spacing="0.5px">&amp; ROADSIDE</text>
+  
+  <!-- Additional road elements for depth -->
+  <g opacity="0.3">
+    <!-- Road signs silhouette -->
+    <rect x="320" y="80" width="4" height="30" fill="#6b7280"/>
+    <rect x="315" y="80" width="14" height="8" fill="#fbbf24" rx="1"/>
+    
+    <!-- Mile markers -->
+    <rect x="80" y="140" width="3" height="15" fill="#9ca3af"/>
+    <rect x="270" y="90" width="3" height="15" fill="#9ca3af"/>
+  </g>
+  
+  <!-- Professional service badge -->
+  <g transform="translate(320, 140)">
+    <rect x="0" y="0" width="70" height="25" fill="#ea580c" rx="12"/>
+    <text x="35" y="17" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">24/7 SERVICE</text>
+  </g>
+  
+  <!-- Subtle gradient overlay for professional look -->
+  <defs>
+    <linearGradient id="roadGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:0.05"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="400" height="200" fill="url(#roadGradient)"/>
+</svg>

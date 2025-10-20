@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Truck, Wrench, Car, Clock, MapPin, Shield } from "lucide-react";
 import { trackServiceInterest } from "@/lib/analytics";
+import { useLocation } from "wouter";
 import emergencyImage from "@assets/generated_images/Emergency_roadside_assistance_service_0f19d632.png";
 
 const services = [
@@ -26,9 +27,23 @@ const services = [
 ];
 
 export default function Services() {
+  const [, setLocation] = useLocation();
+  
   const handleLearnMore = (service: string) => {
     trackServiceInterest(service.toLowerCase().replace(' ', '_'));
-    // Future: could navigate to detailed service page or open modal
+    
+    // Navigate to dedicated pages for specific services
+    if (service === "Emergency Towing") {
+      setLocation("/emergency-towing");
+    } else if (service === "Roadside Assistance") {
+      setLocation("/roadside-assistance");
+    } else {
+      // For other services, scroll to contact section
+      const element = document.querySelector('#contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   return (

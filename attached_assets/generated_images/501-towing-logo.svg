@@ -1,0 +1,56 @@
+<svg viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background shield -->
+  <path d="M30 15 L90 15 Q95 15 95 20 L95 50 Q95 70 60 85 Q25 70 25 50 L25 20 Q25 15 30 15 Z" fill="#1e40af" stroke="#ea580c" stroke-width="2"/>
+  
+  <!-- Refined tow truck silhouette based on original -->
+  <g transform="translate(30, 20)">
+    <!-- Main truck body -->
+    <rect x="10" y="35" width="35" height="12" fill="#ffffff" rx="1"/>
+    <!-- Truck cab -->
+    <rect x="40" y="25" width="15" height="22" fill="#ffffff" rx="1"/>
+    <!-- Windshield -->
+    <rect x="42" y="27" width="11" height="8" fill="#e5e7eb" rx="1"/>
+    <!-- Tow boom/arm -->
+    <path d="M8 40 L25 30 L25 33 L45 33 L45 36 L25 36 L25 39 Z" fill="#ea580c"/>
+    <!-- Hook and chain -->
+    <circle cx="6" cy="41" r="1.5" fill="#ea580c"/>
+    <path d="M6 41 L3 45 L5 45 L8 41" stroke="#ea580c" stroke-width="1" fill="none"/>
+    <!-- Wheels -->
+    <circle cx="18" cy="50" r="4" fill="#374151"/>
+    <circle cx="45" cy="50" r="4" fill="#374151"/>
+    <!-- Wheel details -->
+    <circle cx="18" cy="50" r="2" fill="#6b7280"/>
+    <circle cx="45" cy="50" r="2" fill="#6b7280"/>
+    <!-- Grille details -->
+    <rect x="53" y="30" width="1" height="12" fill="#d1d5db"/>
+    <rect x="51" y="32" width="1" height="8" fill="#d1d5db"/>
+  </g>
+  
+  <!-- Company name with improved typography -->
+  <text x="115" y="45" font-family="Inter, Arial Black, sans-serif" font-size="32" font-weight="900" fill="#1e40af" letter-spacing="-1px">501</text>
+  <text x="115" y="68" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#374151" letter-spacing="1px">TOWING</text>
+  <text x="115" y="87" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#ea580c" letter-spacing="0.5px">&amp; ROADSIDE</text>
+  
+  <!-- Professional service badges -->
+  <g transform="translate(320, 20)">
+    <!-- 24/7 Emergency badge -->
+    <rect x="0" y="0" width="70" height="22" fill="#ea580c" rx="11"/>
+    <text x="35" y="15" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">24/7 EMERGENCY</text>
+    
+    <!-- Professional service indicator -->
+    <rect x="0" y="28" width="70" height="18" fill="#1e40af" rx="9"/>
+    <text x="35" y="40" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">PROFESSIONAL</text>
+    
+    <!-- Quality stars -->
+    <g transform="translate(15, 52)">
+      <polygon points="5,0 6,3 10,3 7,5 8,8 5,6 2,8 3,5 0,3 4,3" fill="#fbbf24"/>
+      <polygon points="15,0 16,3 20,3 17,5 18,8 15,6 12,8 13,5 10,3 14,3" fill="#fbbf24"/>
+      <polygon points="25,0 26,3 30,3 27,5 28,8 25,6 22,8 23,5 20,3 24,3" fill="#fbbf24"/>
+      <polygon points="35,0 36,3 40,3 37,5 38,8 35,6 32,8 33,5 30,3 34,3" fill="#fbbf24"/>
+      <polygon points="45,0 46,3 50,3 47,5 48,8 45,6 42,8 43,5 40,3 44,3" fill="#fbbf24"/>
+    </g>
+  </g>
+  
+  <!-- Subtle shadow/depth -->
+  <ellipse cx="60" cy="90" rx="30" ry="3" fill="#000000" opacity="0.1"/>
+</svg>

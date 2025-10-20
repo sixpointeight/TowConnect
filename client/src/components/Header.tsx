@@ -29,12 +29,13 @@ export default function Header() {
   const navItems = [
     { label: "Home", href: "/", isRoute: true },
     { label: "Rate Calculator", href: "/rate-calculator", isRoute: true },
-    { label: "About", href: "#about", isRoute: false },
+    { label: "About", href: "/about", isRoute: true },
     { label: "Contact", href: "#contact", isRoute: false },
   ];
 
   const serviceItems = [
     { label: "View All Services", href: "#services", isRoute: false },
+    { label: "Emergency Towing", href: "/emergency-towing", isRoute: true },
     { label: "Roadside Assistance", href: "/roadside-assistance", isRoute: true },
   ];
 
