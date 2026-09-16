@@ -30,11 +30,12 @@ export default function Header() {
     { label: "Home", href: "/", isRoute: true },
     { label: "Rate Calculator", href: "/rate-calculator", isRoute: true },
     { label: "About", href: "/about", isRoute: true },
-    { label: "Contact", href: "#contact", isRoute: false },
+    { label: "Services", href: "/#services", isRoute: false },
+    { label: "Contact", href: "/#contact", isRoute: false },
   ];
 
   const serviceItems = [
-    { label: "View All Services", href: "#services", isRoute: false },
+    { label: "View All Services", href: "/#services", isRoute: false },
     { label: "Emergency Towing", href: "/emergency-towing", isRoute: true },
     { label: "Roadside Assistance", href: "/roadside-assistance", isRoute: true },
   ];
@@ -48,14 +49,20 @@ export default function Header() {
     // Track navigation
     const destination = isRoute ? href.replace('/', '') || 'home' : href.replace('#', '');
     trackNavigation(destination, 'header');
-    
+
     if (isRoute) {
       // Let Link component handle routing
     } else {
-      // Handle anchor links for same-page navigation
-      const element = document.querySelector(href);
+      const hash = href.includes('#') ? href.split('#')[1] : null;
+      const targetSelector = hash ? `#${hash}` : href;
+
+      if (href.startsWith('/#')) {
+        window.history.pushState({}, '', href);
+      }
+
+      const element = document.querySelector(targetSelector);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
     setIsMenuOpen(false);

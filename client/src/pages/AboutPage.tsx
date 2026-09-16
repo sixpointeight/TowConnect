@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Users, Award, Clock, Truck } from "lucide-react";
@@ -11,6 +12,54 @@ const stats = [
 ];
 
 export default function AboutPage() {
+  useEffect(() => {
+    const title = "About Us | 501 Towing & Roadside - Benton, AR";
+    const description =
+      "Learn about 501 Towing & Roadside. Over 15 years of trusted towing, recovery, and emergency roadside service in Benton and Central Arkansas.";
+    const canonicalUrl = "https://fiveoonetowing.com/about";
+
+    document.title = title;
+
+    const setMeta = (selector: string, attributes: Record<string, string>) => {
+      let tag = document.head.querySelector(selector) as HTMLMetaElement | null;
+      if (!tag) {
+        tag = document.createElement(selector.startsWith("meta") ? "meta" : "link");
+        document.head.appendChild(tag);
+      }
+
+      Object.entries(attributes).forEach(([key, value]) => {
+        tag.setAttribute(key, value);
+      });
+
+      return tag;
+    };
+
+    setMeta('meta[name="description"]', { name: "description", content: description });
+    setMeta('link[rel="canonical"]', { rel: "canonical", href: canonicalUrl });
+    setMeta('meta[property="og:title"]', {
+      property: "og:title",
+      content: "About Us | 501 Towing & Roadside",
+    });
+    setMeta('meta[property="og:description"]', {
+      property: "og:description",
+      content: "Trusted local towing company with 15+ years serving Benton and Central Arkansas.",
+    });
+    setMeta('meta[property="og:url"]', {
+      property: "og:url",
+      content: canonicalUrl,
+    });
+    setMeta('meta[property="og:type"]', { property: "og:type", content: "website" });
+    setMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary" });
+    setMeta('meta[name="twitter:title"]', {
+      name: "twitter:title",
+      content: "About Us | 501 Towing & Roadside",
+    });
+    setMeta('meta[name="twitter:description"]', {
+      name: "twitter:description",
+      content: "Trusted local towing company with 15+ years serving Benton and Central Arkansas.",
+    });
+  }, []);
+
   return (
     <div className="py-16" data-testid="page-about">
       <div className="container mx-auto px-4">
