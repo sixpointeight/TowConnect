@@ -10,7 +10,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import FAQSection from "@/components/FAQSection";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
-import { updatePageMeta } from "@/lib/seo";
+import { updatePageMeta, setStructuredData, LOCAL_BUSINESS_SCHEMA } from "@/lib/seo";
 
 export default function HomePage() {
   useEffect(() => {
@@ -19,6 +19,8 @@ export default function HomePage() {
       description: "Fast, damage-free flatbed towing and 24/7 roadside assistance across Benton, Little Rock, Bryant, and Central AR. Under 30-min response. Call (501) 451-2151.",
       canonicalUrl: "https://fiveoonetowing.com/",
     });
+
+    setStructuredData("homepage-local-business-schema", LOCAL_BUSINESS_SCHEMA);
   }, []);
 
   return (

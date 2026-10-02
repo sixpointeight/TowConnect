@@ -18,6 +18,11 @@ import ServicesPage from "@/pages/ServicesPage";
 import FleetPage from "@/pages/FleetPage";
 import CoverageAreaPage from "@/pages/CoverageAreaPage";
 import FAQPage from "@/pages/FAQPage";
+import ContactPage from "@/pages/ContactPage";
+import EvTowingPage from "@/pages/EvTowingPage";
+import CommercialTowingPage from "@/pages/CommercialTowingPage";
+import SalineCountyPage from "@/pages/SalineCountyPage";
+import LittleRockPage from "@/pages/LittleRockPage";
 
 // Component to track page views
 function PageTracker() {
@@ -53,11 +58,27 @@ function App() {
                 <Route path="/rate-calculator" component={RateCalculatorPage} />
                 <Route path="/roadside-assistance" component={RoadsideAssistancePage} />
                 <Route path="/emergency-towing" component={EmergencyTowingPage} />
+                
+                {/* Specific crawlable service endpoints */}
                 <Route path="/services" component={ServicesPage} />
-                <Route path="/fleet" component={FleetPage} />
+                <Route path="/services/ev-towing" component={EvTowingPage} />
+                <Route path="/ev-towing" component={EvTowingPage} />
+                <Route path="/services/commercial-towing" component={CommercialTowingPage} />
+                <Route path="/commercial-towing" component={CommercialTowingPage} />
+
+                {/* Specific crawlable coverage endpoints */}
                 <Route path="/coverage" component={CoverageAreaPage} />
+                <Route path="/coverage/saline-county" component={SalineCountyPage} />
+                <Route path="/coverage/benton-bryant" component={SalineCountyPage} />
+                <Route path="/coverage/little-rock" component={LittleRockPage} />
+                <Route path="/coverage/pulaski-county" component={LittleRockPage} />
+
+                {/* Core pages */}
+                <Route path="/fleet" component={FleetPage} />
                 <Route path="/about" component={AboutPage} />
                 <Route path="/faq" component={FAQPage} />
+                <Route path="/contact" component={ContactPage} />
+
                 {/* Default route - redirect to home */}
                 <Route component={HomePage} />
               </Switch>

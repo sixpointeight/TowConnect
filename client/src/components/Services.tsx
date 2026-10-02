@@ -154,7 +154,7 @@ export default function Services() {
         "Soft-strap harness over tires (zero rim contact)",
         "Direct transport to Tesla Superchargers or certified repair centers",
       ],
-      link: "/emergency-towing",
+      link: "/services/ev-towing",
     },
     {
       id: "commercial_equipment",
@@ -170,7 +170,7 @@ export default function Services() {
         "Dealership and repair shop scheduled transfers",
         "Fully licensed by Arkansas Towing & Recovery Board",
       ],
-      link: "/services",
+      link: "/services/commercial-towing",
     },
   ];
 

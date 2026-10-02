@@ -1,4 +1,16 @@
 User-agent: *
 Allow: /
+Allow: /rate-calculator
+Allow: /emergency-towing
+Allow: /roadside-assistance
+Allow: /services/
+Allow: /coverage/
+Allow: /fleet
+Allow: /about
+Allow: /faq
+Allow: /contact
+
+# Block private API endpoints
+Disallow: /api/
 
 Sitemap: https://fiveoonetowing.com/sitemap.xml

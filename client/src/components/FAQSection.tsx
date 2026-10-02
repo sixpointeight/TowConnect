@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { 
   Accordion, 
   AccordionContent, 
@@ -8,43 +9,48 @@ import { Badge } from "@/components/ui/badge";
 import { HelpCircle, Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackPhoneCall } from "@/lib/analytics";
+import { setStructuredData, generateFaqSchema } from "@/lib/seo";
 import { Link } from "wouter";
 
+export const FAQ_DATA = [
+  {
+    q: "How quickly can a 501 Towing truck arrive at my breakdown location?",
+    a: "Our average emergency arrival time is between 15 and 30 minutes in Benton, Bryant, and Little Rock. Because our trucks are strategically stationed near major arteries including I-30, I-430, and Highway 5, we can route the closest available unit with live GPS dispatch.",
+  },
+  {
+    q: "Can you safely tow electric vehicles like Teslas and hybrids?",
+    a: "Yes! All-electric vehicles require specialized rollback flatbed transport because their electric motors cannot spin freely without generating hazardous electrical feedback or overheating. We carry low-approach flatbeds, auxiliary battery booster bridges to unlock electronic gear selectors (Tow Mode), and 8-point nylon tire basket straps that avoid any rim or suspension contact.",
+  },
+  {
+    q: "How does your three-leg towing rate calculation work?",
+    a: "Unlike companies that hit you with surprise fees upon arrival, we calculate your total price transparently using Google Maps routing. It includes: (1) Enroute miles from our Benton dispatch center to your vehicle ($1.75/mi), (2) Loaded miles carrying your vehicle to your destination ($4.00/mi), (3) Deadhead miles for our truck returning to base ($1.50/mi), plus our flat $85.00 hookup fee. You can test your exact route anytime on our Towing Rate Calculator.",
+  },
+  {
+    q: "Will my auto insurance or roadside plan (AAA, State Farm, GEICO, etc.) reimburse the tow?",
+    a: "Yes. Almost all comprehensive or roadside insurance policies cover towing and roadside assistance under reimbursement terms. When our driver completes your service, we provide an itemized digital receipt detailing date, time, pickup/drop-off addresses, vehicle VIN, and line-item charges. You simply upload this invoice through your insurance app or agent for rapid reimbursement.",
+  },
+  {
+    q: "What payment methods do you accept on-scene?",
+    a: "Every 501 Towing driver is equipped with a secure mobile card reader. We accept all major credit and debit cards (Visa, MasterCard, American Express, Discover), contactless mobile pay (Apple Pay, Google Pay), company checks (for established commercial fleet accounts), and cash.",
+  },
+  {
+    q: "Can you transport lowered sports cars, classic cars, or commercial dually pickups?",
+    a: "Absolutely. Our fleet includes hydraulic rollback flatbeds with ultra-shallow 10-degree loading angles, ensuring zero bumper or splitter contact on lowered cars. For heavy dual-rear-wheel trucks, work vans, and machinery, our medium-duty wreckers and high-tonnage decks handle the weight safely.",
+  },
+  {
+    q: "What information should I have ready when calling dispatch?",
+    a: "To get a truck to you as fast as possible, please provide: (1) Your approximate location (cross street, highway mile marker, or business landmark), (2) Vehicle year, make, model, and color, (3) The nature of the problem (e.g., won't start, collision damage, flat tire, lockout), and (4) Where you'd like the car transported.",
+  },
+  {
+    q: "Are you open on weekends, major holidays, and during severe Arkansas storms?",
+    a: "Yes, 501 Towing operates 24 hours a day, 365 days a year without exception. Inclement weather—including ice, flash flooding, high winds, and severe thunderstorms—is when motorists need help most. Our operators are on standby around the clock.",
+  },
+];
+
 export default function FAQSection() {
-  const faqs = [
-    {
-      q: "How quickly can a 501 Towing truck arrive at my breakdown location?",
-      a: "Our average emergency arrival time is between 15 and 30 minutes in Benton, Bryant, and Little Rock. Because our trucks are strategically stationed near major arteries including I-30, I-430, and Highway 5, we can route the closest available unit with live GPS dispatch.",
-    },
-    {
-      q: "Can you safely tow electric vehicles like Teslas and hybrids?",
-      a: "Yes! All-electric vehicles require specialized rollback flatbed transport because their electric motors cannot spin freely without generating hazardous electrical feedback or overheating. We carry low-approach flatbeds, auxiliary battery booster bridges to unlock electronic gear selectors (Tow Mode), and 8-point nylon tire basket straps that avoid any rim or suspension contact.",
-    },
-    {
-      q: "How does your three-leg towing rate calculation work?",
-      a: "Unlike companies that hit you with surprise fees upon arrival, we calculate your total price transparently using Google Maps routing. It includes: (1) Enroute miles from our Benton dispatch center to your vehicle ($1.75/mi), (2) Loaded miles carrying your vehicle to your destination ($4.00/mi), (3) Deadhead miles for our truck returning to base ($1.50/mi), plus our flat $85.00 hookup fee. You can test your exact route anytime on our Towing Rate Calculator.",
-    },
-    {
-      q: "Will my auto insurance or roadside plan (AAA, State Farm, GEICO, etc.) reimburse the tow?",
-      a: "Yes. Almost all comprehensive or roadside insurance policies cover towing and roadside assistance under reimbursement terms. When our driver completes your service, we provide an itemized digital receipt detailing date, time, pickup/drop-off addresses, vehicle VIN, and line-item charges. You simply upload this invoice through your insurance app or agent for rapid reimbursement.",
-    },
-    {
-      q: "What payment methods do you accept on-scene?",
-      a: "Every 501 Towing driver is equipped with a secure mobile card reader. We accept all major credit and debit cards (Visa, MasterCard, American Express, Discover), contactless mobile pay (Apple Pay, Google Pay), company checks (for established commercial fleet accounts), and cash.",
-    },
-    {
-      q: "Can you transport lowered sports cars, classic cars, or commercial dually pickups?",
-      a: "Absolutely. Our fleet includes hydraulic rollback flatbeds with ultra-shallow 10-degree loading angles, ensuring zero bumper or splitter contact on lowered cars. For heavy dual-rear-wheel trucks, work vans, and machinery, our medium-duty wreckers and high-tonnage decks handle the weight safely.",
-    },
-    {
-      q: "What information should I have ready when calling dispatch?",
-      a: "To get a truck to you as fast as possible, please provide: (1) Your approximate location (cross street, highway mile marker, or business landmark), (2) Vehicle year, make, model, and color, (3) The nature of the problem (e.g., won't start, collision damage, flat tire, lockout), and (4) Where you'd like the car transported.",
-    },
-    {
-      q: "Are you open on weekends, major holidays, and during severe Arkansas storms?",
-      a: "Yes, 501 Towing operates 24 hours a day, 365 days a year without exception. Inclement weather—including ice, flash flooding, high winds, and severe thunderstorms—is when motorists need help most. Our operators are on standby around the clock.",
-    },
-  ];
+  useEffect(() => {
+    setStructuredData("faq-schema-data", generateFaqSchema(FAQ_DATA));
+  }, []);
 
   const handleCall = () => {
     trackPhoneCall("faq_section_call");
@@ -70,7 +76,7 @@ export default function FAQSection() {
         {/* Accordion Container */}
         <div className="max-w-4xl mx-auto glass-card rounded-2xl p-6 sm:p-10 border border-border/70 shadow-xl mb-12">
           <Accordion type="single" collapsible className="w-full space-y-3">
-            {faqs.map((faq, index) => (
+            {FAQ_DATA.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import FAQSection from "@/components/FAQSection";
+import FAQSection, { FAQ_DATA } from "@/components/FAQSection";
 import EmergencyProtocol from "@/components/EmergencyProtocol";
-import { updatePageMeta } from "@/lib/seo";
+import { updatePageMeta, setStructuredData, generateFaqSchema, LOCAL_BUSINESS_SCHEMA } from "@/lib/seo";
 
 export default function FAQPage() {
   useEffect(() => {
@@ -10,6 +10,9 @@ export default function FAQPage() {
       description: "Answers to towing questions: pricing calculations, EV/Tesla safe towing, insurance reimbursement, response times, and breakdown safety tips.",
       canonicalUrl: "https://fiveoonetowing.com/faq",
     });
+
+    setStructuredData("faq-business-schema", LOCAL_BUSINESS_SCHEMA);
+    setStructuredData("faq-page-schema", generateFaqSchema(FAQ_DATA));
   }, []);
 
   return (

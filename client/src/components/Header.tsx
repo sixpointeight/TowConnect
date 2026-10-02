@@ -52,7 +52,7 @@ export default function Header() {
     { label: "Coverage", href: "/coverage", isRoute: true },
     { label: "About", href: "/about", isRoute: true },
     { label: "FAQ", href: "/faq", isRoute: true },
-    { label: "Contact", href: "/#contact", isRoute: false },
+    { label: "Contact", href: "/contact", isRoute: true },
   ];
 
   const servicesMenu = [
@@ -71,11 +71,18 @@ export default function Header() {
       tag: "Under 25 min",
     },
     {
-      title: "EV & Tesla Towing",
+      title: "Tesla & EV Towing",
       description: "Zero-damage soft straps & specialized neutral-tow equipment",
-      href: "/emergency-towing#ev-specialty",
+      href: "/services/ev-towing",
       icon: Zap,
       tag: "EV Certified",
+    },
+    {
+      title: "Commercial & Medium Duty",
+      description: "Work vans, box trucks, equipment trailers, and priority fleet accounts",
+      href: "/services/commercial-towing",
+      icon: Truck,
+      tag: "Fleet Accounts",
     },
     {
       title: "View All Services",
@@ -356,6 +363,22 @@ export default function Header() {
                     <span>Roadside Assistance</span>
                   </Link>
                   <Link
+                    href="/services/ev-towing"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:bg-muted flex items-center gap-2"
+                  >
+                    <Zap className="h-4 w-4 text-primary" />
+                    <span>Tesla & EV Safe Towing</span>
+                  </Link>
+                  <Link
+                    href="/services/commercial-towing"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:bg-muted flex items-center gap-2"
+                  >
+                    <Truck className="h-4 w-4 text-primary" />
+                    <span>Commercial & Fleet Towing</span>
+                  </Link>
+                  <Link
                     href="/services"
                     onClick={() => setIsMenuOpen(false)}
                     className="px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:bg-muted flex items-center gap-2"
@@ -367,22 +390,38 @@ export default function Header() {
 
                 {/* Company & Support Links */}
                 <div className="pt-2 pb-1 px-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                  Information & Support
+                  Coverage & Information
                 </div>
                 <div className="pl-2 space-y-0.5">
                   <Link
-                    href="/fleet"
+                    href="/coverage/saline-county"
                     onClick={() => setIsMenuOpen(false)}
-                    className="px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:bg-muted block"
+                    className="px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:bg-muted flex items-center gap-2"
                   >
-                    Our Fleet & Equipment
+                    <MapPin className="h-4 w-4 text-accent" />
+                    <span>Benton & Bryant (Saline Co.)</span>
+                  </Link>
+                  <Link
+                    href="/coverage/little-rock"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:bg-muted flex items-center gap-2"
+                  >
+                    <MapPin className="h-4 w-4 text-accent" />
+                    <span>Little Rock & NLR (Pulaski Co.)</span>
                   </Link>
                   <Link
                     href="/coverage"
                     onClick={() => setIsMenuOpen(false)}
                     className="px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:bg-muted block"
                   >
-                    Coverage Areas & ETA
+                    All Central AR Coverage & ETAs
+                  </Link>
+                  <Link
+                    href="/fleet"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:bg-muted block"
+                  >
+                    Our Fleet & Equipment
                   </Link>
                   <Link
                     href="/about"
@@ -398,12 +437,13 @@ export default function Header() {
                   >
                     Frequently Asked Questions
                   </Link>
-                  <button
-                    onClick={() => handleLinkClick("/#contact", false)}
-                    className="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:bg-muted block"
+                  <Link
+                    href="/contact"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:bg-muted block"
                   >
                     Contact & Location
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { updatePageMeta } from "@/lib/seo";
+import { updatePageMeta, setStructuredData, LOCAL_BUSINESS_SCHEMA } from "@/lib/seo";
 import { trackPhoneCall } from "@/lib/analytics";
 
 import teslaImage from "@assets/generated_images/501_towing_loading_tesla.png";
@@ -29,6 +29,8 @@ export default function AboutPage() {
       description: "Learn about 501 Towing & Roadside. Over 15 years of trusted towing, recovery, and emergency roadside service in Benton, Little Rock, and Central Arkansas.",
       canonicalUrl: "https://fiveoonetowing.com/about",
     });
+
+    setStructuredData("about-local-business-schema", LOCAL_BUSINESS_SCHEMA);
   }, []);
 
   const handleCall = () => {

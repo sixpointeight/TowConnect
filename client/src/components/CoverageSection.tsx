@@ -241,15 +241,29 @@ export default function CoverageSection() {
               </div>
             </div>
 
-            <div className="pt-2 flex items-center justify-between">
-              <span className="text-xs text-muted-foreground">
-                Don't see your specific town? We cover the entire state.
-              </span>
+            <div className="pt-2 flex flex-wrap items-center justify-between gap-2">
+              <div className="flex items-center gap-3">
+                {currentZone.county.includes("Saline") ? (
+                  <Link
+                    href="/coverage/saline-county"
+                    className="text-xs font-bold text-accent hover:underline flex items-center gap-1"
+                  >
+                    Benton & Bryant Hub Details <ArrowRight className="h-3 w-3" />
+                  </Link>
+                ) : currentZone.county.includes("Pulaski") ? (
+                  <Link
+                    href="/coverage/little-rock"
+                    className="text-xs font-bold text-accent hover:underline flex items-center gap-1"
+                  >
+                    Little Rock Metro Hub Details <ArrowRight className="h-3 w-3" />
+                  </Link>
+                ) : null}
+              </div>
               <Link
                 href="/coverage"
                 className="text-xs font-bold text-primary hover:text-accent transition-colors flex items-center gap-1"
               >
-                Full Coverage Details <ArrowRight className="h-3 w-3" />
+                All Central AR Coverage <ArrowRight className="h-3 w-3" />
               </Link>
             </div>
           </div>
