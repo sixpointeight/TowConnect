@@ -28,17 +28,18 @@ export function updatePageMeta(options: PageMetaOptions) {
     setTag('meta[property="og:url"]', 'meta', { property: 'og:url', content: options.canonicalUrl });
   }
   
+  setTag('meta[property="og:site_name"]', 'meta', { property: 'og:site_name', content: '501 Towing & Roadside' });
   setTag('meta[property="og:title"]', 'meta', { property: 'og:title', content: options.title });
   setTag('meta[property="og:description"]', 'meta', { property: 'og:description', content: options.description });
   setTag('meta[property="og:type"]', 'meta', { property: 'og:type', content: 'website' });
+  setTag('meta[name="robots"]', 'meta', { name: 'robots', content: 'index, follow, max-image-preview:large' });
   setTag('meta[name="twitter:card"]', 'meta', { name: 'twitter:card', content: 'summary_large_image' });
   setTag('meta[name="twitter:title"]', 'meta', { name: 'twitter:title', content: options.title });
   setTag('meta[name="twitter:description"]', 'meta', { name: 'twitter:description', content: options.description });
   
-  if (options.ogImage) {
-    setTag('meta[property="og:image"]', 'meta', { property: 'og:image', content: options.ogImage });
-    setTag('meta[name="twitter:image"]', 'meta', { name: 'twitter:image', content: options.ogImage });
-  }
+  const image = options.ogImage || 'https://fiveoonetowing.com/og-image.png';
+  setTag('meta[property="og:image"]', 'meta', { property: 'og:image', content: image });
+  setTag('meta[name="twitter:image"]', 'meta', { name: 'twitter:image', content: image });
 }
 
 /**
@@ -68,11 +69,9 @@ export const LOCAL_BUSINESS_SCHEMA = {
   "legalName": "501 Towing & Roadside Service LLC",
   "alternateName": "501 Towing",
   "url": "https://fiveoonetowing.com",
-  "logo": "https://fiveoonetowing.com/assets/logo-black.png",
+  "logo": "https://fiveoonetowing.com/favicon.svg",
   "image": [
-    "https://fiveoonetowing.com/assets/501-towing-black-wrecker.png",
-    "https://fiveoonetowing.com/assets/501_towing_loading_tesla.png",
-    "https://fiveoonetowing.com/assets/tow_truck_501_towing_2.jpeg"
+    "https://fiveoonetowing.com/og-image.png"
   ],
   "description": "Professional 24/7 emergency flatbed towing, Tesla & EV safe recovery, accident winching, and roadside assistance serving Benton, Bryant, Little Rock, and Central Arkansas.",
   "telephone": "+1-501-451-2151",

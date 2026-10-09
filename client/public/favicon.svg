@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+  </defs>
+  <!-- Background Badge (rounded square) -->
+  <rect width="64" height="64" rx="14" fill="url(#grad)" stroke="#f59e0b" stroke-width="2" />
+  
+  <!-- "501" Text Banner -->
+  <text x="32" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="-0.5">501</text>
+  
+  <!-- Tow Truck & Boom / Hook Silhouette in Gold -->
+  <g fill="url(#gold)" transform="translate(10, 31) scale(0.68)">
+    <!-- Cab -->
+    <path d="M2 18 L10 18 L16 11 L28 11 L28 18 L32 18 C33 18 34 19 34 20 L34 24 L2 24 Z" />
+    <!-- Window -->
+    <path d="M12 16 L16 12.5 L24 12.5 L24 16 Z" fill="#0f172a" />
+    <!-- Flatbed / Wrecker Boom -->
+    <path d="M30 18 L46 12 L48 14 L34 19 Z" />
+    <!-- Cable / Hook -->
+    <path d="M46 13 L56 22 L54 23 L44 14 Z" />
+    <path d="M56 22 C58 24 55 27 52 26" fill="none" stroke="url(#gold)" stroke-width="2" stroke-linecap="round" />
+    <!-- Wheels -->
+    <circle cx="10" cy="24" r="4.5" fill="#ffffff" />
+    <circle cx="10" cy="24" r="2.5" fill="#0f172a" />
+    <circle cx="27" cy="24" r="4.5" fill="#ffffff" />
+    <circle cx="27" cy="24" r="2.5" fill="#0f172a" />
+  </g>
+</svg>
+
