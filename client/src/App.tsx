@@ -23,6 +23,8 @@ import EvTowingPage from "@/pages/EvTowingPage";
 import CommercialTowingPage from "@/pages/CommercialTowingPage";
 import SalineCountyPage from "@/pages/SalineCountyPage";
 import LittleRockPage from "@/pages/LittleRockPage";
+import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
+import TermsAndConditionsPage from "@/pages/TermsAndConditionsPage";
 
 // Component to track page views
 function PageTracker() {
@@ -78,6 +80,12 @@ function App() {
                 <Route path="/about" component={AboutPage} />
                 <Route path="/faq" component={FAQPage} />
                 <Route path="/contact" component={ContactPage} />
+
+                {/* Legal pages */}
+                <Route path="/privacy-policy" component={PrivacyPolicyPage} />
+                <Route path="/privacy" component={PrivacyPolicyPage} />
+                <Route path="/terms-and-conditions" component={TermsAndConditionsPage} />
+                <Route path="/terms" component={TermsAndConditionsPage} />
 
                 {/* Default route - redirect to home */}
                 <Route component={HomePage} />

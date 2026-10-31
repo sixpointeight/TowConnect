@@ -239,7 +239,21 @@ export default function Footer() {
             © {currentYear} 501 Towing & Roadside Service LLC. All rights reserved. | Benton & Central Arkansas.
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            <Link
+              href="/privacy-policy"
+              className="text-slate-400 hover:text-white transition-colors"
+              data-testid="link-footer-privacy"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-and-conditions"
+              className="text-slate-400 hover:text-white transition-colors"
+              data-testid="link-footer-terms"
+            >
+              Terms & Conditions
+            </Link>
             <button
               onClick={scrollToTop}
               className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors"
